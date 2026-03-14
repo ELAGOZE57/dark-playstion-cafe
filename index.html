@@ -20,7 +20,6 @@
             margin: 0 auto;
         }
         
-        /* اللوجو */
         .logo {
             margin-bottom: 30px;
         }
@@ -45,7 +44,6 @@
             opacity: 0.8;
         }
         
-        /* البطاقة الرئيسية */
         .card {
             background: #111;
             border: 2px solid #FFD700;
@@ -62,7 +60,6 @@
             padding-bottom: 10px;
         }
         
-        /* المنتجات */
         .products {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -88,7 +85,6 @@
             line-height: 1.6;
         }
         
-        /* صورة المنيو */
         .menu-box {
             margin: 30px 0;
             padding: 20px;
@@ -96,7 +92,6 @@
             border-radius: 15px;
         }
         
-        /* تم تعديل المسار هنا */
         .menu-image {
             width: 100%;
             max-width: 500px;
@@ -105,6 +100,11 @@
             border-radius: 15px;
             cursor: pointer;
             margin: 15px 0;
+            transition: transform 0.3s;
+        }
+        
+        .menu-image:hover {
+            transform: scale(1.05);
         }
         
         .menu-text {
@@ -119,7 +119,6 @@
             50% { opacity: 1; }
         }
         
-        /* زر الواتساب */
         .whatsapp {
             display: inline-block;
             background: #FFD700;
@@ -138,7 +137,6 @@
             color: #FFD700;
         }
         
-        /* العنوان */
         .info {
             background: #1a1a1a;
             border-right: 4px solid #FFD700;
@@ -159,7 +157,6 @@
             direction: ltr;
         }
         
-        /* للجوال */
         @media (max-width: 600px) {
             .ping-rk { font-size: 3em; }
             .products { grid-template-columns: 1fr; }
@@ -199,7 +196,7 @@
                 </div>
             </div>
 
-            <!-- صورة المنيو - المسار الصحيح الآن -->
+            <!-- صورة المنيو - المسار الصحيح -->
             <div class="menu-box">
                 <img src="images/JPG.file.jpg" 
                      alt="منيو بلايستيشن" 
