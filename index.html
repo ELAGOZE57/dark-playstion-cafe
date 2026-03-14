@@ -330,15 +330,6 @@
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
         
-        .hours-box {
-            text-align: center;
-            color: #e0e0e0;
-            font-size: 1.3em;
-            padding: 15px;
-            border-top: 1px dashed #FFD700;
-            margin-top: 20px;
-        }
-        
         /* خط زخرفي */
         .decor-line {
             width: 100%;
@@ -369,7 +360,7 @@
             }
             
             .products-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
             }
             
@@ -380,6 +371,12 @@
             
             .phone-box {
                 font-size: 1.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -397,7 +394,7 @@
         <div class="card">
             <h2>القائمة</h2>
             
-            <!-- منتجات المقهى -->
+            <!-- منتجات المقهى - تم إزالة وجبات سريعة -->
             <div class="products-grid">
                 <div class="product-item">
                     <span class="product-icon">☕</span>
@@ -409,12 +406,6 @@
                     <span class="product-icon">🥤</span>
                     <div class="product-title">مشروبات باردة</div>
                     <div class="product-desc">بيبسي - سفن أب - ميرندا - مياه</div>
-                </div>
-                
-                <div class="product-item">
-                    <span class="product-icon">🍕</span>
-                    <div class="product-title">وجبات سريعة</div>
-                    <div class="product-desc">ساندويتشات - بيتزا - بطاطس - مقبلات</div>
                 </div>
                 
                 <div class="product-item">
@@ -454,7 +445,7 @@
                 </a>
             </div>
 
-            <!-- معلومات العنوان -->
+            <!-- معلومات العنوان - تم إزالة ساعات العمل -->
             <div class="info-section">
                 <div class="address-box">
                     📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق
@@ -462,10 +453,6 @@
                 
                 <div class="phone-box">
                     01032393132
-                </div>
-                
-                <div class="hours-box">
-                    ⏰ 12:00 ظهراً - 2:00 صباحاً
                 </div>
             </div>
         </div>
