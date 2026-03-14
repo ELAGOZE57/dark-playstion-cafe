@@ -42,24 +42,40 @@
             letter-spacing: 3px;
         }
         
-        .address {
+        .address-box {
             background: #111;
-            border-right: 5px solid gold;
-            border-left: 5px solid gold;
-            padding: 25px 15px;
-            border-radius: 20px;
+            border: 2px solid gold;
+            padding: 30px 20px;
+            border-radius: 30px;
             margin: 30px 0;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .address-label {
+            color: gold;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .address {
             font-size: 1.3em;
             line-height: 1.8;
             color: #fff;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            margin-bottom: 10px;
         }
         
-        .address span {
+        .address .question {
             color: gold;
-            font-size: 1.5em;
-            display: block;
-            margin-bottom: 10px;
+            font-size: 1.2em;
+            margin: 0 5px;
+        }
+        
+        .address .exclamation {
+            color: gold;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-right: 5px;
         }
         
         .phone {
@@ -70,9 +86,9 @@
             letter-spacing: 3px;
             text-shadow: 0 0 10px gold;
             background: #111;
-            padding: 15px;
-            border-radius: 50px;
-            border: 1px solid gold;
+            padding: 20px;
+            border-radius: 60px;
+            border: 2px solid gold;
         }
         
         .whatsapp-btn {
@@ -105,13 +121,13 @@
             padding-top: 20px;
         }
         
-        /* تنسيق للجوال */
         @media (max-width: 500px) {
             h1 { font-size: 2.5em; }
             h2 { font-size: 1.5em; }
             .phone { font-size: 2.2em; }
             .whatsapp-btn { font-size: 1.4em; padding: 15px 30px; }
             .address { font-size: 1.1em; }
+            .address-label { font-size: 1.3em; }
         }
     </style>
 </head>
@@ -120,10 +136,13 @@
         <h1>PING RK</h1>
         <h2>PLAYSTATION CAFE</h2>
         
-        <!-- العنوان مع علامة ❗️ -->
-        <div class="address">
-            <span>📍 العنوان</span>
-            شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق ❗️
+        <!-- العنوان مع علامات الاستفهام والتعجب -->
+        <div class="address-box">
+            <div class="address-label">العنوان <span class="question">❓</span></div>
+            <div class="address">
+                شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق 
+                <span class="exclamation">!</span>
+            </div>
         </div>
         
         <!-- رقم الهاتف -->
