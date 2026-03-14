@@ -11,50 +11,46 @@
             font-family: Arial, sans-serif;
             text-align: center;
             direction: rtl;
-            padding: 20px;
+            padding: 15px;
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
         .container {
             max-width: 600px;
-            width: 100%;
+            margin: 0 auto;
         }
         
         h1 {
             color: #00a8ff;
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            font-size: 2em;
+            margin: 20px 0;
         }
         
-        .menu-box {
+        .menu-card {
             background: #1a1a1a;
             border-radius: 20px;
             padding: 20px;
             border: 2px solid #00a8ff;
+            margin: 20px 0;
         }
         
         .menu-image {
             width: 100%;
             max-width: 500px;
-            height: auto;
             border-radius: 15px;
             border: 3px solid #00a8ff;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         
         .info {
             color: #00a8ff;
-            margin: 15px 0;
             padding: 10px;
-            background: #00a8ff10;
+            background: #00a8ff15;
             border-radius: 10px;
+            margin: 15px 0;
         }
         
-        .button {
+        .whatsapp-btn {
             display: inline-block;
             background: #00a8ff;
             color: black;
@@ -62,19 +58,23 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.2em;
             margin: 10px;
             border: 2px solid #00a8ff;
         }
         
         .address {
-            color: #888;
-            margin: 20px 0;
-            line-height: 1.6;
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            color: #ccc;
+            line-height: 1.8;
+            margin-top: 20px;
         }
         
-        @media (max-width: 500px) {
-            h1 { font-size: 1.8em; }
-            .button { display: block; margin: 10px 0; }
+        .working-hours {
+            color: #00a8ff;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -82,32 +82,36 @@
     <div class="container">
         <h1>🎮 DARK PLAYSTATION CAFE 🎮</h1>
         
-        <div class="menu-box">
-            <h2 style="color: #00a8ff;">📋 قائمة الطعام</h2>
+        <div class="menu-card">
+            <h2 style="color: #00a8ff;">📋 القائمة</h2>
             
-            <!-- صورة المنيو - تم تعديل المسار -->
-            <img src="images/menu.jpg" 
-                 alt="المنيو" 
-                 class="menu-image"
-                 onclick="window.open('https://wa.me/201032393132', '_blank')">
+            <!-- صورة المنيو - استخدمنا الاسم كما هو menu.jpg.jpg -->
+            <img src="images/menu.jpg.jpg" 
+                 alt="منيو المقهى" 
+                 class="menu-image">
             
             <div class="info">
                 ⭐ جلسات خاصة ⭐ أحدث الألعاب ⭐ مشروبات ساخنة وباردة
             </div>
             
-            <!-- زر الواتساب -->
+            <!-- زر واتساب -->
             <a href="https://wa.me/201032393132" 
-               class="button" 
+               class="whatsapp-btn" 
                target="_blank">
                 📞 احجز عبر واتساب
             </a>
         </div>
         
-        <!-- العنوان -->
+        <!-- العنوان كما طلبت -->
         <div class="address">
-            📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق<br>
-            📱 واتساب: 01032393132<br>
-            ⏰ 12:00 ظهراً - 2:00 صباحاً
+            <div style="font-size: 1.2em; color: #00a8ff; margin-bottom: 10px;">📍 العنوان</div>
+            شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #333;">
+                📱 01032393132
+            </div>
+            <div class="working-hours">
+                ⏰ 12:00 ظهراً - 2:00 صباحاً
+            </div>
         </div>
     </div>
 </body>
