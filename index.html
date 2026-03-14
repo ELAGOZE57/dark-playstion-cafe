@@ -5,153 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark PlayStation Cafe</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            direction: rtl;
+            padding: 20px;
+            margin: 0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            direction: rtl;
         }
         
         .container {
-            max-width: 900px;
-            padding: 20px;
-            text-align: center;
+            max-width: 600px;
+            width: 100%;
         }
         
         h1 {
             color: #00a8ff;
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px #00a8ff;
-            animation: glow 2s ease-in-out infinite;
+            font-size: 2.5em;
+            margin-bottom: 30px;
         }
         
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 20px #00a8ff; }
-            50% { text-shadow: 0 0 40px #00a8ff, 0 0 60px #00a8ff; }
-        }
-        
-        .cafe-card {
-            background: rgba(20, 20, 20, 0.95);
-            border-radius: 30px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 168, 255, 0.3);
+        .menu-box {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 20px;
             border: 2px solid #00a8ff;
-            backdrop-filter: blur(10px);
         }
         
         .menu-image {
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             height: auto;
-            border-radius: 20px;
-            border: 4px solid #00a8ff;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            border: 3px solid #00a8ff;
             margin: 20px 0;
-            box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
         }
         
-        .menu-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px #00a8ff;
-            border-color: #fff;
+        .info {
+            color: #00a8ff;
+            margin: 15px 0;
+            padding: 10px;
+            background: #00a8ff10;
+            border-radius: 10px;
         }
         
-        .menu-button {
+        .button {
             display: inline-block;
             background: #00a8ff;
             color: black;
-            padding: 15px 40px;
-            border-radius: 50px;
+            padding: 15px 30px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
+            margin: 10px;
             border: 2px solid #00a8ff;
-            cursor: pointer;
-        }
-        
-        .menu-button:hover {
-            background: transparent;
-            color: #00a8ff;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px #00a8ff;
-        }
-        
-        .price-tag {
-            color: #00a8ff;
-            font-size: 1.5em;
-            margin: 15px 0;
-            padding: 10px;
-            background: rgba(0, 168, 255, 0.1);
-            border-radius: 15px;
-        }
-        
-        .footer {
-            margin-top: 30px;
-            color: #888;
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-        
-        .footer p {
-            margin: 5px 0;
         }
         
         .address {
-            color: #00a8ff;
-            font-size: 1.1em;
-            margin: 10px 0;
-            padding: 10px;
-            background: rgba(0, 168, 255, 0.05);
-            border-radius: 10px;
-            border-right: 3px solid #00a8ff;
+            color: #888;
+            margin: 20px 0;
+            line-height: 1.6;
         }
         
-        .visit-count {
-            margin-top: 20px;
-            color: #00a8ff;
-            font-size: 0.9em;
-        }
-        
-        /* تنسيق للهواتف المحمولة */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .cafe-card {
-                padding: 20px;
-            }
-            
-            .menu-image {
-                max-width: 100%;
-            }
-            
-            .price-tag {
-                font-size: 1.2em;
-            }
-            
-            .menu-button {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
+        @media (max-width: 500px) {
+            h1 { font-size: 1.8em; }
+            .button { display: block; margin: 10px 0; }
         }
     </style>
 </head>
@@ -159,79 +82,33 @@
     <div class="container">
         <h1>🎮 DARK PLAYSTATION CAFE 🎮</h1>
         
-        <div class="cafe-card">
-            <h2 style="color: #00a8ff; margin-bottom: 20px; font-size: 2em;">📋 قائمة الطعام والجلسات</h2>
+        <div class="menu-box">
+            <h2 style="color: #00a8ff;">📋 قائمة الطعام</h2>
             
-            <!-- صورة المنيو -->
+            <!-- صورة المنيو - تم تعديل المسار -->
             <img src="images/menu.jpg" 
-                 alt="منيو مقهى بلايستيشن" 
+                 alt="المنيو" 
                  class="menu-image"
-                 onclick="window.open('https://ELAGOZE57.github.io/dark-playstation-cafe/menu', '_blank')"
-                 title="اضغط لفتح المنيو"
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1a1a1a/00a8ff?text=المنيو+قادم+قريباً'">
+                 onclick="window.open('https://wa.me/201032393132', '_blank')">
             
-            <div class="price-tag">
+            <div class="info">
                 ⭐ جلسات خاصة ⭐ أحدث الألعاب ⭐ مشروبات ساخنة وباردة
             </div>
             
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <!-- زر للذهاب للمنيو -->
-                <a href="https://ELAGOZE57.github.io/dark-playstation-cafe/full-menu" 
-                   class="menu-button" 
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    🍔 عرض المنيو الكامل 🥤
-                </a>
-                
-                <!-- زر الحجز عبر واتساب - تم تحديث الرقم -->
-                <a href="https://wa.me/201032393132" 
-                   class="menu-button" 
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    📞 احجز الآن عبر واتساب
-                </a>
-            </div>
+            <!-- زر الواتساب -->
+            <a href="https://wa.me/201032393132" 
+               class="button" 
+               target="_blank">
+                📞 احجز عبر واتساب
+            </a>
         </div>
         
-        <div class="footer">
-            <!-- تم تحديث العنوان حسب طلبك -->
-            <div class="address">
-                📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق
-            </div>
-            
-            <!-- تم تحديث رقم الواتساب -->
-            <p>📱 واتساب: 01032393132</p>
-            <p>⏰ ساعات العمل: 12:00 ظهراً - 2:00 صباحاً (يومياً)</p>
-            
-            <div class="visit-count">
-                👥 انضم إلينا اليوم واستمتع بأفضل تجربة ألعاب
-            </div>
+        <!-- العنوان -->
+        <div class="address">
+            📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق<br>
+            📱 واتساب: 01032393132<br>
+            ⏰ 12:00 ظهراً - 2:00 صباحاً
         </div>
     </div>
-    
-    <script>
-        // التأكد من تحميل الصورة بشكل صحيح
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuImage = document.querySelector('.menu-image');
-            
-            // إضافة تأثير النقر على الصورة (نقرة واحدة)
-            menuImage.addEventListener('click', function(e) {
-                window.open('https://ELAGOZE57.github.io/dark-playstation-cafe/menu', '_blank');
-            });
-            
-            // رسالة ترحيبية في الكونسول
-            console.log('🎮 مرحباً بكم في Dark PlayStation Cafe');
-            console.log('📍 العنوان: شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق');
-            console.log('📱 واتساب: 01032393132');
-        });
-        
-        // إحصائيات زيارة بسيطة (اختياري)
-        if (localStorage.getItem('visitCount')) {
-            let count = parseInt(localStorage.getItem('visitCount')) + 1;
-            localStorage.setItem('visitCount', count);
-        } else {
-            localStorage.setItem('visitCount', 1);
-        }
-    </script>
 </body>
 </html>
