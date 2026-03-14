@@ -5,114 +5,398 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark PlayStation Cafe</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             background: #0a0a0a;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.03) 0%, transparent 20%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #c0c0c0;
             direction: rtl;
             padding: 15px;
-            margin: 0;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 900px;
+            width: 100%;
             margin: 0 auto;
         }
         
-        h1 {
-            color: #00a8ff;
-            font-size: 2em;
-            margin: 20px 0;
+        /* تصميم اللوجو */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
         }
         
-        .menu-card {
-            background: #1a1a1a;
+        .logo {
+            font-size: 3.5em;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 2px #00a8ff;
+            text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo span {
+            color: #00a8ff;
+            -webkit-text-stroke: 0;
+            font-size: 0.9em;
+            display: block;
+            letter-spacing: 8px;
+            margin-top: -10px;
+        }
+        
+        .logo::before {
+            content: 'PING RK';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #00a8ff;
+            opacity: 0.3;
+            filter: blur(8px);
+            z-index: -1;
+        }
+        
+        .logo-sub {
+            color: #c0c0c0;
+            font-size: 1.2em;
+            margin-top: 5px;
+            letter-spacing: 3px;
+        }
+        
+        .cafe-card {
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid #00a8ff;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 168, 255, 0.2),
+                        inset 0 0 20px rgba(0, 168, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cafe-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00a8ff, transparent, #00a8ff);
+            border-radius: 30px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        h2 {
+            color: #00a8ff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
+        }
+        
+        /* صورة المنيو */
+        .menu-image-container {
+            position: relative;
+            margin: 30px 0;
             border-radius: 20px;
-            padding: 20px;
+            overflow: hidden;
             border: 2px solid #00a8ff;
-            margin: 20px 0;
+            box-shadow: 0 0 30px rgba(0, 168, 255, 0.3);
         }
         
         .menu-image {
             width: 100%;
-            max-width: 500px;
-            border-radius: 15px;
-            border: 3px solid #00a8ff;
-            margin: 15px 0;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            background: #1a1a1a;
+            min-height: 200px;
+            object-fit: cover;
         }
         
-        .info {
-            color: #00a8ff;
-            padding: 10px;
-            background: #00a8ff15;
-            border-radius: 10px;
-            margin: 15px 0;
+        .menu-image:hover {
+            transform: scale(1.05);
         }
         
-        .whatsapp-btn {
-            display: inline-block;
-            background: #00a8ff;
-            color: black;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 168, 255, 0.3));
+            padding: 20px;
+            text-align: center;
+            color: white;
             font-weight: bold;
-            font-size: 1.2em;
-            margin: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* بطاقات الخدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .service-item {
+            background: rgba(0, 168, 255, 0.05);
+            border: 1px solid rgba(0, 168, 255, 0.3);
+            border-radius: 15px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: #c0c0c0;
+        }
+        
+        .service-item:hover {
+            background: rgba(0, 168, 255, 0.15);
+            border-color: #00a8ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 168, 255, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+            color: #00a8ff;
+        }
+        
+        /* زر الواتساب */
+        .whatsapp-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00a8ff, #0080ff);
+            color: #0a0a0a;
+            font-weight: bold;
+            font-size: 1.3em;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px auto;
             border: 2px solid #00a8ff;
+            box-shadow: 0 0 30px rgba(0, 168, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button:hover {
+            background: transparent;
+            color: #00a8ff;
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(0, 168, 255, 0.8);
+        }
+        
+        .whatsapp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .whatsapp-button:hover::before {
+            left: 100%;
+        }
+        
+        /* معلومات العنوان */
+        .info-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00a8ff;
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+            backdrop-filter: blur(5px);
         }
         
         .address {
-            background: #111;
-            padding: 15px;
-            border-radius: 10px;
-            color: #ccc;
+            font-size: 1.2em;
             line-height: 1.8;
-            margin-top: 20px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 168, 255, 0.03);
+            border-radius: 15px;
+            border-right: 3px solid #00a8ff;
         }
         
-        .working-hours {
+        .phone {
+            font-size: 1.5em;
             color: #00a8ff;
-            margin-top: 10px;
+            direction: ltr;
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(0, 168, 255, 0.1);
+            border-radius: 50px;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+        
+        .hours {
+            color: #c0c0c0;
+            font-size: 1.1em;
+            margin-top: 15px;
+            padding: 10px;
+            border-top: 1px dashed #00a8ff;
+        }
+        
+        /* تأثيرات إضافية */
+        .neon-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00a8ff, #00a8ff, #00a8ff, transparent);
+            margin: 20px 0;
+            box-shadow: 0 0 10px #00a8ff;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5em;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .whatsapp-button {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+            
+            .phone {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎮 DARK PLAYSTATION CAFE 🎮</h1>
-        
-        <div class="menu-card">
-            <h2 style="color: #00a8ff;">📋 القائمة</h2>
-            
-            <!-- صورة المنيو - استخدمنا الاسم كما هو menu.jpg.jpg -->
-            <img src="images/menu.jpg.jpg" 
-                 alt="منيو المقهى" 
-                 class="menu-image">
-            
-            <div class="info">
-                ⭐ جلسات خاصة ⭐ أحدث الألعاب ⭐ مشروبات ساخنة وباردة
+        <!-- اللوجو -->
+        <div class="logo-container">
+            <div class="logo">
+                PING RK
+                <span>PLAYSTATION CAFE</span>
             </div>
-            
-            <!-- زر واتساب -->
-            <a href="https://wa.me/201032393132" 
-               class="whatsapp-btn" 
-               target="_blank">
-                📞 احجز عبر واتساب
-            </a>
+            <div class="logo-sub">DARK EDITION</div>
         </div>
         
-        <!-- العنوان كما طلبت -->
-        <div class="address">
-            <div style="font-size: 1.2em; color: #00a8ff; margin-bottom: 10px;">📍 العنوان</div>
-            شارع التحرير امام فيلا احمد ضيف الله بجوار حى شرق
-            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #333;">
-                📱 01032393132
+        <div class="cafe-card">
+            <h2>📋 القائمة</h2>
+            
+            <!-- صورة المنيو -->
+            <div class="menu-image-container">
+                <img src="images/menu.jpg" 
+                     alt="منيو مقهى بلايستيشن" 
+                     class="menu-image"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/0a0a0a/00a8ff?text=قائمة+الطعام+والجلسات'">
+                <div class="image-overlay">
+                    اضغط على الصورة للتكبير
+                </div>
             </div>
-            <div class="working-hours">
-                ⏰ 12:00 ظهراً - 2:00 صباحاً
+            
+            <!-- خدمات المقهى -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-icon">🎮</span>
+                    جلسات خاصة
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">🕹️</span>
+                    أحدث الألعاب
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">☕</span>
+                    مشروبات ساخنة
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">🥤</span>
+                    مشروبات باردة
+                </div>
             </div>
+            
+            <div class="neon-line"></div>
+            
+            <!-- زر الواتساب -->
+            <div style="text-align: center;">
+                <a href="https://wa.me/201032393132" 
+                   class="whatsapp-button" 
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📱 احجز عبر واتساب
+                </a>
+            </div>
+            
+            <!-- معلومات العنوان -->
+            <div class="info-card">
+                <div class="address">
+                    📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق
+                </div>
+                
+                <div class="phone">
+                    01032393132
+                </div>
+                
+                <div class="hours">
+                    ⏰ 12:00 ظهراً - 2:00 صباحاً
+                </div>
+            </div>
+        </div>
+        
+        <!-- حقوق الملكية -->
+        <div style="text-align: center; margin-top: 20px; color: #444; font-size: 0.8em;">
+            © 2026 DARK PLAYSTATION CAFE - جميع الحقوق محفوظة
         </div>
     </div>
+    
+    <script>
+        // إضافة تأثير النقر على الصورة
+        document.querySelector('.menu-image-container').addEventListener('click', function() {
+            window.open('images/menu.jpg', '_blank');
+        });
+        
+        // رسالة ترحيب
+        console.log('🎮 مرحباً بك في DARK PLAYSTATION CAFE');
+        console.log('📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق');
+    </script>
 </body>
 </html>
