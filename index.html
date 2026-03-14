@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark PlayStation Cafe</title>
+    <title>PING RK | PlayStation Cafe</title>
     <style>
         * {
             margin: 0;
@@ -13,106 +13,112 @@
         
         body {
             background: #0a0a0a;
-            background-image: radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.03) 0%, transparent 20%);
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #c0c0c0;
+            color: #e0e0e0;
             direction: rtl;
             padding: 15px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
         }
         
-        /* تصميم اللوجو */
-        .logo-container {
+        /* تصميم اللوجو الرئيسي */
+        .logo-main {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
         
-        .logo {
-            font-size: 3.5em;
+        .ping-rk {
+            font-size: 5em;
             font-weight: 900;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: transparent;
-            -webkit-text-stroke: 2px #00a8ff;
-            text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+            letter-spacing: 10px;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+                        0 0 40px rgba(255, 215, 0, 0.3),
+                        0 0 60px rgba(255, 215, 0, 0.1);
+            line-height: 1;
             position: relative;
             display: inline-block;
         }
         
-        .logo span {
-            color: #00a8ff;
-            -webkit-text-stroke: 0;
-            font-size: 0.9em;
-            display: block;
-            letter-spacing: 8px;
-            margin-top: -10px;
-        }
-        
-        .logo::before {
+        .ping-rk::before {
             content: 'PING RK';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            color: #00a8ff;
+            color: #FFD700;
             opacity: 0.3;
-            filter: blur(8px);
+            filter: blur(10px);
             z-index: -1;
         }
         
-        .logo-sub {
-            color: #c0c0c0;
-            font-size: 1.2em;
-            margin-top: 5px;
-            letter-spacing: 3px;
+        .playstation-cafe {
+            font-size: 2em;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            margin-top: -10px;
+            font-weight: 300;
         }
         
-        .cafe-card {
+        .dark-edition {
+            font-size: 1.2em;
+            color: #FFD700;
+            letter-spacing: 5px;
+            margin-top: 5px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        .card {
             background: rgba(10, 10, 10, 0.95);
-            border: 1px solid #00a8ff;
+            border: 1px solid #FFD700;
             border-radius: 30px;
-            padding: 30px;
-            box-shadow: 0 0 40px rgba(0, 168, 255, 0.2),
-                        inset 0 0 20px rgba(0, 168, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2),
+                        inset 0 0 30px rgba(255, 215, 0, 0.1);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
         
-        .cafe-card::before {
+        .card::before {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00a8ff, transparent, #00a8ff);
-            border-radius: 30px;
-            z-index: -1;
-            animation: borderGlow 3s linear infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 215, 0, 0.1),
+                transparent
+            );
+            animation: rotate 10s linear infinite;
         }
         
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         h2 {
-            color: #00a8ff;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #FFD700;
+            font-size: 2.5em;
             text-align: center;
+            margin-bottom: 30px;
             position: relative;
             display: inline-block;
             width: 100%;
@@ -124,19 +130,78 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFD700, #FFD700, transparent);
+            box-shadow: 0 0 20px #FFD700;
+        }
+        
+        /* منتجات المقهى */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .product-item {
+            background: rgba(255, 215, 0, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .product-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .product-title {
+            color: #FFD700;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .product-desc {
+            color: #e0e0e0;
+            font-size: 0.9em;
+            line-height: 1.6;
         }
         
         /* صورة المنيو */
+        .menu-wrapper {
+            margin: 40px 0;
+            position: relative;
+            cursor: pointer;
+        }
+        
         .menu-image-container {
             position: relative;
-            margin: 30px 0;
             border-radius: 20px;
             overflow: hidden;
-            border: 2px solid #00a8ff;
-            box-shadow: 0 0 30px rgba(0, 168, 255, 0.3);
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-image-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.5);
         }
         
         .menu-image {
@@ -145,258 +210,285 @@
             display: block;
             transition: transform 0.5s ease;
             background: #1a1a1a;
-            min-height: 200px;
+            min-height: 300px;
             object-fit: cover;
         }
         
-        .menu-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .image-overlay {
+        .menu-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0, 168, 255, 0.3));
-            padding: 20px;
+            background: linear-gradient(transparent, rgba(255, 215, 0, 0.3));
+            padding: 25px;
             text-align: center;
-            color: white;
+            color: #FFD700;
             font-weight: bold;
+            font-size: 1.2em;
             backdrop-filter: blur(5px);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
         }
         
-        /* بطاقات الخدمات */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
+        .menu-image-container:hover .menu-overlay {
+            transform: translateY(0);
         }
         
-        .service-item {
-            background: rgba(0, 168, 255, 0.05);
-            border: 1px solid rgba(0, 168, 255, 0.3);
-            border-radius: 15px;
-            padding: 15px 10px;
+        .click-hint {
             text-align: center;
-            transition: all 0.3s ease;
-            color: #c0c0c0;
+            color: #FFD700;
+            margin-top: 10px;
+            font-size: 1em;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
         }
         
-        .service-item:hover {
-            background: rgba(0, 168, 255, 0.15);
-            border-color: #00a8ff;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 168, 255, 0.2);
-        }
-        
-        .service-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-            display: block;
-            color: #00a8ff;
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
         
         /* زر الواتساب */
-        .whatsapp-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #00a8ff, #0080ff);
+        .whatsapp-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #FFD700, #ffaa00);
             color: #0a0a0a;
             font-weight: bold;
-            font-size: 1.3em;
-            padding: 18px 45px;
-            border-radius: 50px;
+            font-size: 1.5em;
+            padding: 20px 50px;
+            border-radius: 60px;
             text-decoration: none;
-            margin: 20px auto;
-            border: 2px solid #00a8ff;
-            box-shadow: 0 0 30px rgba(0, 168, 255, 0.5);
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .whatsapp-button:hover {
+        .whatsapp-btn:hover {
             background: transparent;
-            color: #00a8ff;
+            color: #FFD700;
             transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(0, 168, 255, 0.8);
+            box-shadow: 0 0 70px rgba(255, 215, 0, 0.6);
         }
         
-        .whatsapp-button::before {
+        .whatsapp-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
             transition: left 0.5s ease;
         }
         
-        .whatsapp-button:hover::before {
+        .whatsapp-btn:hover::before {
             left: 100%;
         }
         
-        /* معلومات العنوان */
-        .info-card {
+        .whatsapp-icon {
+            font-size: 1.3em;
+        }
+        
+        /* معلومات الاتصال */
+        .info-section {
             background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #00a8ff;
+            border: 1px solid #FFD700;
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             margin-top: 30px;
-            text-align: center;
             backdrop-filter: blur(5px);
         }
         
-        .address {
+        .address-box {
+            background: rgba(255, 215, 0, 0.03);
+            border-right: 4px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             font-size: 1.2em;
             line-height: 1.8;
-            color: #c0c0c0;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(0, 168, 255, 0.03);
-            border-radius: 15px;
-            border-right: 3px solid #00a8ff;
+            color: #e0e0e0;
         }
         
-        .phone {
-            font-size: 1.5em;
-            color: #00a8ff;
+        .phone-box {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FFD700;
             direction: ltr;
-            display: inline-block;
-            padding: 10px 25px;
-            background: rgba(0, 168, 255, 0.1);
-            border-radius: 50px;
-            margin: 10px 0;
-            letter-spacing: 2px;
-        }
-        
-        .hours {
-            color: #c0c0c0;
-            font-size: 1.1em;
-            margin-top: 15px;
-            padding: 10px;
-            border-top: 1px dashed #00a8ff;
-        }
-        
-        /* تأثيرات إضافية */
-        .neon-line {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #00a8ff, #00a8ff, #00a8ff, transparent);
+            letter-spacing: 3px;
             margin: 20px 0;
-            box-shadow: 0 0 10px #00a8ff;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
         
+        .hours-box {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 1.3em;
+            padding: 15px;
+            border-top: 1px dashed #FFD700;
+            margin-top: 20px;
+        }
+        
+        /* خط زخرفي */
+        .decor-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFD700, #FFD700, transparent);
+            margin: 30px 0;
+            box-shadow: 0 0 20px #FFD700;
+        }
+        
+        /* تنسيق للجوال */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5em;
+            .ping-rk {
+                font-size: 3em;
+                letter-spacing: 5px;
             }
             
-            .services-grid {
+            .playstation-cafe {
+                font-size: 1.5em;
+                letter-spacing: 4px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .products-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
-            .whatsapp-button {
-                font-size: 1.1em;
+            .whatsapp-btn {
+                font-size: 1.2em;
                 padding: 15px 30px;
             }
             
-            .phone {
-                font-size: 1.2em;
+            .phone-box {
+                font-size: 1.8em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- اللوجو -->
-        <div class="logo-container">
-            <div class="logo">
-                PING RK
-                <span>PLAYSTATION CAFE</span>
-            </div>
-            <div class="logo-sub">DARK EDITION</div>
+        <!-- اللوجو بالأصفر -->
+        <div class="logo-main">
+            <div class="ping-rk">PING RK</div>
+            <div class="playstation-cafe">PLAYSTATION CAFE</div>
+            <div class="dark-edition">DARK EDITION</div>
         </div>
-        
-        <div class="cafe-card">
-            <h2>📋 القائمة</h2>
+
+        <!-- البطاقة الرئيسية -->
+        <div class="card">
+            <h2>القائمة</h2>
             
+            <!-- منتجات المقهى -->
+            <div class="products-grid">
+                <div class="product-item">
+                    <span class="product-icon">☕</span>
+                    <div class="product-title">مشروبات ساخنة</div>
+                    <div class="product-desc">قهوة - شاي - نسكافيه - كابتشينو</div>
+                </div>
+                
+                <div class="product-item">
+                    <span class="product-icon">🥤</span>
+                    <div class="product-title">مشروبات باردة</div>
+                    <div class="product-desc">بيبسي - سفن أب - ميرندا - مياه</div>
+                </div>
+                
+                <div class="product-item">
+                    <span class="product-icon">🍕</span>
+                    <div class="product-title">وجبات سريعة</div>
+                    <div class="product-desc">ساندويتشات - بيتزا - بطاطس - مقبلات</div>
+                </div>
+                
+                <div class="product-item">
+                    <span class="product-icon">🎮</span>
+                    <div class="product-title">جلسات بلايستيشن</div>
+                    <div class="product-desc">PS5 - PS4 - أحدث الألعاب - جلسات خاصة</div>
+                </div>
+            </div>
+
+            <div class="decor-line"></div>
+
             <!-- صورة المنيو -->
-            <div class="menu-image-container">
-                <img src="images/menu.jpg" 
-                     alt="منيو مقهى بلايستيشن" 
-                     class="menu-image"
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/0a0a0a/00a8ff?text=قائمة+الطعام+والجلسات'">
-                <div class="image-overlay">
-                    اضغط على الصورة للتكبير
+            <div class="menu-wrapper">
+                <div class="menu-image-container" onclick="window.open('images/menu.jpg', '_blank')">
+                    <img src="images/menu.jpg" 
+                         alt="منيو بلايستيشن كافيه" 
+                         class="menu-image"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/0a0a0a/FFD700?text=منيو+بلايستيشن+كافيه'">
+                    <div class="menu-overlay">
+                        اضغط لتكبير الصورة
+                    </div>
+                </div>
+                <div class="click-hint">
+                    👆 اضغط على الصورة لعرض المنيو كاملاً 👆
                 </div>
             </div>
-            
-            <!-- خدمات المقهى -->
-            <div class="services-grid">
-                <div class="service-item">
-                    <span class="service-icon">🎮</span>
-                    جلسات خاصة
-                </div>
-                <div class="service-item">
-                    <span class="service-icon">🕹️</span>
-                    أحدث الألعاب
-                </div>
-                <div class="service-item">
-                    <span class="service-icon">☕</span>
-                    مشروبات ساخنة
-                </div>
-                <div class="service-item">
-                    <span class="service-icon">🥤</span>
-                    مشروبات باردة
-                </div>
-            </div>
-            
-            <div class="neon-line"></div>
-            
+
             <!-- زر الواتساب -->
-            <div style="text-align: center;">
+            <div class="whatsapp-section">
                 <a href="https://wa.me/201032393132" 
-                   class="whatsapp-button" 
+                   class="whatsapp-btn" 
                    target="_blank"
                    rel="noopener noreferrer">
-                    📱 احجز عبر واتساب
+                    <span class="whatsapp-icon">📱</span>
+                    احجز عبر واتساب
+                    <span class="whatsapp-icon">📞</span>
                 </a>
             </div>
-            
+
             <!-- معلومات العنوان -->
-            <div class="info-card">
-                <div class="address">
+            <div class="info-section">
+                <div class="address-box">
                     📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق
                 </div>
                 
-                <div class="phone">
+                <div class="phone-box">
                     01032393132
                 </div>
                 
-                <div class="hours">
+                <div class="hours-box">
                     ⏰ 12:00 ظهراً - 2:00 صباحاً
                 </div>
             </div>
         </div>
-        
-        <!-- حقوق الملكية -->
-        <div style="text-align: center; margin-top: 20px; color: #444; font-size: 0.8em;">
-            © 2026 DARK PLAYSTATION CAFE - جميع الحقوق محفوظة
+
+        <!-- الحقوق -->
+        <div style="text-align: center; margin-top: 30px; color: #444; font-size: 0.9em;">
+            © 2026 PING RK PLAYSTATION CAFE - جميع الحقوق محفوظة
         </div>
     </div>
-    
+
     <script>
-        // إضافة تأثير النقر على الصورة
-        document.querySelector('.menu-image-container').addEventListener('click', function() {
-            window.open('images/menu.jpg', '_blank');
-        });
-        
         // رسالة ترحيب
-        console.log('🎮 مرحباً بك في DARK PLAYSTATION CAFE');
-        console.log('📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق');
+        console.log('%c🏆 PING RK PLAYSTATION CAFE 🏆', 'color: #FFD700; font-size: 16px; font-weight: bold');
+        console.log('%c📍 شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق', 'color: #FFD700');
+        console.log('%c📱 01032393132', 'color: #FFD700');
+        
+        // إحصائيات الزوار
+        if (localStorage.getItem('visitCount')) {
+            let count = parseInt(localStorage.getItem('visitCount')) + 1;
+            localStorage.setItem('visitCount', count);
+        } else {
+            localStorage.setItem('visitCount', 1);
+        }
     </script>
 </body>
 </html>
