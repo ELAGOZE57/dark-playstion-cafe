@@ -37,7 +37,7 @@
             color: gold;
             font-size: 2em;
             margin-top: 0;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             opacity: 0.9;
             letter-spacing: 3px;
         }
@@ -53,10 +53,24 @@
         
         .menu-title {
             color: gold;
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
             border-bottom: 2px solid gold;
             padding-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .menu-title:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px gold;
+        }
+        
+        .menu-title a {
+            color: gold;
+            text-decoration: none;
+            display: block;
         }
         
         .menu-items {
@@ -71,34 +85,24 @@
             border: 1px solid gold;
             border-radius: 15px;
             padding: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px gold;
         }
         
         .menu-item h3 {
             color: gold;
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 10px;
         }
         
         .menu-item p {
             color: #ccc;
-            font-size: 0.9em;
+            font-size: 1em;
             line-height: 1.6;
-        }
-        
-        .menu-image {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border: 3px solid gold;
-            border-radius: 15px;
-            margin: 20px 0;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .menu-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px gold;
         }
         
         .address-box {
@@ -150,6 +154,8 @@
         .whatsapp-btn:hover {
             background: transparent;
             color: gold;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px gold;
         }
         
         @media (max-width: 500px) {
@@ -166,36 +172,37 @@
         <h1>PING RK</h1>
         <h2>PLAYSTATION CAFE</h2>
         
-        <!-- قسم المنيو -->
+        <!-- قسم المنيو مع رابط -->
         <div class="menu-section">
-            <div class="menu-title">🍔 المنيو 🥤</div>
+            <div class="menu-title">
+                <!-- الرابط عند الضغط على كلمة المنيو -->
+                <a href="https://wa.me/201032393132?text=أريد%20مشاهدة%20المنيو%20كاملاً" target="_blank">
+                    🍔 المنيو 🥤
+                </a>
+            </div>
             
             <!-- قائمة المنتجات -->
             <div class="menu-items">
                 <div class="menu-item">
+                    <h3>🥤 مشروبات باردة</h3>
+                    <p>بيبي - سفن آب - ميرندا - مياه</p>
+                </div>
+                
+                <div class="menu-item">
                     <h3>☕ مشروبات ساخنة</h3>
                     <p>قهوة - شاي - نسكافيه - كابتشينو</p>
                 </div>
+                
                 <div class="menu-item">
-                    <h3>🥤 مشروبات باردة</h3>
-                    <p>بيبسي - سفن أب - ميرندا - مياه</p>
+                    <h3>🎮 جلسات بلايستيشن</h3>
+                    <p>PS4 - PS5 - أحدث الألعاب</p>
                 </div>
+                
                 <div class="menu-item">
                     <h3>🍟 وجبات سريعة</h3>
                     <p>بطاطس - ساندويتشات - بيتزا</p>
                 </div>
-                <div class="menu-item">
-                    <h3>🎮 جلسات بلايستيشن</h3>
-                    <p>PS5 - PS4 - أحدث الألعاب</p>
-                </div>
             </div>
-            
-            <!-- صورة المنيو (اختيارية) -->
-            <img src="images/JPG.file.jpg" 
-                 alt="صورة المنيو" 
-                 class="menu-image"
-                 onclick="window.open('images/JPG.file.jpg', '_blank')"
-                 onerror="this.style.display='none'">
         </div>
         
         <!-- العنوان -->
