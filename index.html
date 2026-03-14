@@ -42,52 +42,94 @@
             letter-spacing: 3px;
         }
         
+        /* قسم المنيو */
+        .menu-section {
+            background: #111;
+            border: 2px solid gold;
+            border-radius: 30px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .menu-title {
+            color: gold;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid gold;
+            padding-bottom: 10px;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .menu-item {
+            background: #1a1a1a;
+            border: 1px solid gold;
+            border-radius: 15px;
+            padding: 15px;
+        }
+        
+        .menu-item h3 {
+            color: gold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item p {
+            color: #ccc;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .menu-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border: 3px solid gold;
+            border-radius: 15px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .menu-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px gold;
+        }
+        
         .address-box {
             background: #111;
             border: 2px solid gold;
-            padding: 30px 20px;
-            border-radius: 30px;
+            padding: 25px;
+            border-radius: 20px;
             margin: 30px 0;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
         }
         
         .address-label {
             color: gold;
             font-size: 1.5em;
             margin-bottom: 15px;
-            font-weight: bold;
         }
         
         .address {
             font-size: 1.3em;
             line-height: 1.8;
             color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .address .question {
-            color: gold;
-            font-size: 1.2em;
-            margin: 0 5px;
-        }
-        
-        .address .exclamation {
-            color: gold;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-right: 5px;
         }
         
         .phone {
             font-size: 3em;
             color: gold;
             direction: ltr;
-            margin: 30px 0;
+            margin: 25px 0;
             letter-spacing: 3px;
-            text-shadow: 0 0 10px gold;
             background: #111;
-            padding: 20px;
-            border-radius: 60px;
+            padding: 15px;
+            border-radius: 50px;
             border: 2px solid gold;
         }
         
@@ -97,37 +139,25 @@
             color: black;
             font-size: 1.8em;
             font-weight: bold;
-            padding: 18px 45px;
-            border-radius: 60px;
+            padding: 15px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            margin: 30px 0 20px;
+            margin: 20px 0;
             border: 2px solid gold;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s;
         }
         
         .whatsapp-btn:hover {
             background: transparent;
             color: gold;
-            transform: scale(1.05);
-            box-shadow: 0 0 40px gold;
-        }
-        
-        .footer {
-            color: #444;
-            margin-top: 40px;
-            font-size: 0.9em;
-            border-top: 1px solid #333;
-            padding-top: 20px;
         }
         
         @media (max-width: 500px) {
             h1 { font-size: 2.5em; }
             h2 { font-size: 1.5em; }
-            .phone { font-size: 2.2em; }
-            .whatsapp-btn { font-size: 1.4em; padding: 15px 30px; }
-            .address { font-size: 1.1em; }
-            .address-label { font-size: 1.3em; }
+            .menu-items { grid-template-columns: 1fr; }
+            .phone { font-size: 2em; }
+            .whatsapp-btn { font-size: 1.4em; padding: 12px 25px; }
         }
     </style>
 </head>
@@ -136,12 +166,43 @@
         <h1>PING RK</h1>
         <h2>PLAYSTATION CAFE</h2>
         
-        <!-- العنوان مع علامات الاستفهام والتعجب -->
+        <!-- قسم المنيو -->
+        <div class="menu-section">
+            <div class="menu-title">🍔 المنيو 🥤</div>
+            
+            <!-- قائمة المنتجات -->
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h3>☕ مشروبات ساخنة</h3>
+                    <p>قهوة - شاي - نسكافيه - كابتشينو</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🥤 مشروبات باردة</h3>
+                    <p>بيبسي - سفن أب - ميرندا - مياه</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🍟 وجبات سريعة</h3>
+                    <p>بطاطس - ساندويتشات - بيتزا</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🎮 جلسات بلايستيشن</h3>
+                    <p>PS5 - PS4 - أحدث الألعاب</p>
+                </div>
+            </div>
+            
+            <!-- صورة المنيو (اختيارية) -->
+            <img src="images/JPG.file.jpg" 
+                 alt="صورة المنيو" 
+                 class="menu-image"
+                 onclick="window.open('images/JPG.file.jpg', '_blank')"
+                 onerror="this.style.display='none'">
+        </div>
+        
+        <!-- العنوان -->
         <div class="address-box">
-            <div class="address-label">العنوان <span class="question">❓</span></div>
+            <div class="address-label">العنوان ؟</div>
             <div class="address">
-                شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق 
-                <span class="exclamation">!</span>
+                شارع التحرير امام فيلا احمد ضيف الله بجوار حي شرق !
             </div>
         </div>
         
@@ -158,7 +219,7 @@
         </a>
         
         <!-- الحقوق -->
-        <div class="footer">
+        <div style="color: #444; margin-top: 30px; font-size: 0.8em;">
             © 2026 PING RK PLAYSTATION CAFE
         </div>
     </div>
